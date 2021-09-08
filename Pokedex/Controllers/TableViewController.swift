@@ -4,7 +4,7 @@
 //
 //  Created by Jeremy Warren on 9/5/21.
 //
-
+import Foundation
 import UIKit
 
 class TableViewController: UITableViewController {
@@ -32,7 +32,29 @@ class TableViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+     //   Prepare for Segue : IDOO
+     //   • IndexPath
+        guard let indexPath = tableView.indexPathForSelectedRow,
+              let destination = segue.destination as? DetailViewController else {
+            return
+        }
+     //   • Destination
+     //   • Object ready
+        let pokemon = pokemon[indexPath.row]
+    //   • Object sent
+        destination.pokemon = pokemon
+    }
+    
+    
+    
+    
+    
+    
 }
+
+
 
 extension TableViewController: PokemonManagerDelegate {
     func didFetchPokemon(pokemon: [Pokemon]) {

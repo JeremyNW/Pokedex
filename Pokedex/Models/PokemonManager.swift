@@ -42,4 +42,5 @@ struct PokemonManager {
         }.resume()
         
     }
+    
 }
